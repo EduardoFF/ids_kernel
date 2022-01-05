@@ -255,9 +255,10 @@ class EchoKernel(KernelBase):
                    user_expressions=None, allow_stdin=False):
         shell = self.shell # we'll need this a lot here
 
-        print("This is the code: {} ---".format(code))
+        #print("This is the code: {} ---".format(code))
 
         self._forward_input(allow_stdin)
+        code = "from easy_ds import *\n"+code
 
         reply_content = {}
         if hasattr(shell, 'run_cell_async') and hasattr(shell, 'should_run_async'):
